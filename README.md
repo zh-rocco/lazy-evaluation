@@ -3,80 +3,14 @@
 ### 示例 1:
 
 ```javascript
-const someValue = expensiveFunction()
-... // 一系列其他操作
-console.log(someValue) // 使用 console.log 模拟 someValue 使用
 ```
-
-`expensiveFunction` 首先执行, 很久后才使用它的返回值.
 
 **优化:**
 
 ```javascript
-console.log(expensiveFunction());
 ```
 
-### 示例 2:
-
-```javascript
-const addHandler = document.body.addEventListener
-  ? function(target, eventType, handler) {
-      // DOM2 Events
-      target.addEventListener(eventType, handler, false);
-    }
-  : function(target, eventType, handler) {
-      // IE
-      target.attachEvent('on' + eventType, handler);
-    };
-
-const removeHandler = document.body.removeEventListener
-  ? function(target, eventType, handler) {
-      // DOM2 Events
-      target.removeEventListener(eventType, handler, false);
-    }
-  : function(target, eventType, handler) {
-      // IE
-      target.detachEvent('on' + eventType, handler);
-    };
-```
-
-脚本加载时会进行条件检测, 而不是加载后.
-
-**优化:**
-
-```javascript
-function addHandler(target, eventType, handler) {
-  if (target.addEventListener) {
-    // DOM2 Events
-    addHandler = function(target, eventType, handler) {
-      target.addEventListener(eventType, handler, false);
-    } else {
-        // IE
-    addHandler = function(target, eventType, handler) {
-      target.attachEvent('on' + eventType, handler);
-    }
-    }
-  }
-}
-
-function removeHandler(target, eventType, handler) {
-  if (target.addEventListener) {
-    // DOM2 Events
-    removeHandler = function(target, eventType, handler) {
-      target.removeEventListener(eventType, handler, false);
-    } else {
-        // IE
-    removeHandler = function(target, eventType, handler) {
-      target.detachEvent('on' + eventType, handler);
-    }
-    }
-  }
-}
-```
-
-### 示例 3:
-
-## 惰性计算 DEMO
+## 简易实现
 
 ```javascript
 const range = function*(from, to) {
@@ -163,4 +97,36 @@ const numbers = lazy()
 for (let n of numbers) {
   console.log('number:', n, '\n');
 }
+```
+
+## Lodash 中的惰性求值
+
+```javascript
+let map_count_1 = 0;
+_.chain(_.range(50))
+  .map(val => {
+    map_count_1++;
+    return val + 1;
+  })
+  .take(10)
+  .value();
+
+console.log('map_count_1:', map_count_1); // 10
+
+let map_count_2 = 0;
+let filter_count_2 = 0;
+_.chain(_.range(200))
+  .map(val => {
+    map_count_2++;
+    return val + 1;
+  })
+  .filter(val => {
+    filter_count_2++;
+    return val > 10;
+  })
+  .take(10)
+  .value();
+
+console.log('map_count_2:', map_count_2); // 20
+console.log('filter_count_2:', filter_count_2); // 20
 ```
