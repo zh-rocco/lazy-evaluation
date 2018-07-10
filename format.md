@@ -222,7 +222,7 @@ console.log('counter:', counter);
 // counter: 21
 ```
 
-## Lodash 中的惰性计算
+## 惰性数组
 
 ## 参考
 
