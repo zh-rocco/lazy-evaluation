@@ -1,6 +1,6 @@
 // 需求
 // (1) price 转换为两位小数, 价格前面添加货币单位 $
-// (2) 取出两个价格高于 10 的商品
+// (2) 取出三个价格低于 10 的商品
 
 const gems = [
   { name: 'Sunstone', price: 4 },
@@ -19,7 +19,7 @@ let transformCounter = 0;
 const filter = item => {
   filterCounter++;
   console.log('filter is run.');
-  return item.price > 10;
+  return item.price < 10;
 };
 const transform = item => {
   transformCounter++;
@@ -33,7 +33,7 @@ const transform = item => {
 const result = gems
   .filter(filter)
   .map(transform)
-  .slice(0, 2);
+  .slice(0, 3);
 
 console.log('filterCounter:', filterCounter);
 console.log('transformCounter:', transformCounter);
@@ -56,6 +56,7 @@ console.log(result);
 // filterCounter: 8
 // transformCounter: 4
 // [
-//   { name: 'Amethyst', price: '$15.00' },
-//   { name: 'Prehnite', price: '$20.00' }
+//   { name: 'Sunstone', price: '$4.00' },
+//   { name: 'Sugilite', price: '$7.00' },
+//   { name: 'Diopside', price: '$3.00' }
 // ]
