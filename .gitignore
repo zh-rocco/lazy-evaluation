@@ -1,7 +1,6 @@
 .DS_Store
 Thumbs.db
 .idea/
-.vscode/
 .history/
 node_modules/
 public/
