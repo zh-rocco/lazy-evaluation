@@ -16,14 +16,16 @@ const gems = [
 ];
 
 let filterCounter = 0;
-let mapCounter = 0;
+let transformCounter = 0;
 
 const filter = item => {
   filterCounter++;
+  console.log('filter is run.');
   return item.price > 10;
 };
 const transform = item => {
-  mapCounter++;
+  transformCounter++;
+  console.log('transform is run.');
   return {
     name: item.name,
     price: `$${item.price.toFixed(2)}`
@@ -38,13 +40,18 @@ const result = _
   .value();
 
 console.log('filterCounter:', filterCounter);
-console.log('mapCounter:', mapCounter);
+console.log('transformCounter:', transformCounter);
 console.log(result);
 
 // console:
 
+// filter is run.
+// filter is run.
+// transform is run.
+// filter is run.
+// transform is run.
 // filterCounter: 3
-// mapCounter: 2
+// transformCounter: 2
 // [
 //   { name: 'Amethyst', price: '$15.00' },
 //   { name: 'Prehnite', price: '$20.00' }

@@ -13,12 +13,17 @@ const gems = [
   { name: 'Sapphire', price: 20 }
 ];
 
-let counter = 0;
+let filterCounter = 0;
+let transformCounter = 0;
 
 const filter = item => {
+  filterCounter++;
+  console.log('filter is run.');
   return item.price > 10;
 };
 const transform = item => {
+  transformCounter++;
+  console.log('transform is run.');
   return {
     name: item.name,
     price: `$${item.price.toFixed(2)}`
@@ -28,7 +33,6 @@ const transform = item => {
 const result = [];
 
 for (let i = 0, len = gems.length; i < len; i++) {
-  counter++;
   const item = gems[i];
   if (filter(item)) {
     result.push(transform(item));
@@ -38,12 +42,19 @@ for (let i = 0, len = gems.length; i < len; i++) {
   }
 }
 
-console.log('counter:', counter);
+console.log('filterCounter:', filterCounter);
+console.log('transformCounter:', transformCounter);
 console.log(result);
 
 // console:
 
-// counter: 3
+// filter is run.
+// filter is run.
+// transform is run.
+// filter is run.
+// transform is run.
+// filterCounter: 3
+// transformCounter: 2
 // [
 //   { name: 'Amethyst', price: '$15.00' },
 //   { name: 'Prehnite', price: '$20.00' }
