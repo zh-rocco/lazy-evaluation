@@ -1,7 +1,6 @@
 const memoize = require('../lib/memoize');
 
 const func = function() {
-  // console.log(this.name);
   console.log('func is executed!');
   return 'func';
 };
@@ -16,11 +15,14 @@ const memorizedFunc2 = memoize(func2);
 
 console.log(memorizedFunc());
 console.log(memorizedFunc());
+console.log(memorizedFunc());
 console.log(memorizedFunc2());
 
-// const a = {
-//   name: 'memorizedFunc',
-//   memorizedFunc: memoize(memorizedFunc)
-// };
+// console:
 
-// console.log(a.memorizedFunc());
+// func is executed!
+// func
+// func
+// func
+// func2 is executed!
+// func2

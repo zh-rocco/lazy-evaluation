@@ -1,5 +1,5 @@
 // 需求
-// (1) price 转换为两位小数, 价格前面添加货币单位 $
+// (1) 商品名转为大写
 // (2) 取出三个价格低于 10 的商品
 
 const gems = [
@@ -25,8 +25,8 @@ const transform = item => {
   transformCounter++;
   console.log('transform is run.');
   return {
-    name: item.name,
-    price: `$${item.price.toFixed(2)}`
+    name: item.name.toUpperCase(),
+    price: item.price
   };
 };
 
@@ -56,7 +56,7 @@ console.log(result);
 // filterCounter: 8
 // transformCounter: 4
 // [
-//   { name: 'Sunstone', price: '$4.00' },
-//   { name: 'Sugilite', price: '$7.00' },
-//   { name: 'Diopside', price: '$3.00' }
+//   { name: 'SUNSTONE', price: 4 },
+//   { name: 'SUGILITE', price: 7 },
+//   { name: 'DIOPSIDE', price: 3 }
 // ]

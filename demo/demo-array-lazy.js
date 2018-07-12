@@ -2,7 +2,7 @@
 // (1) 商品名转为大写
 // (2) 取出三个价格低于 10 的商品
 
-const _ = require('lodash');
+const _ = require('../lib/lazy');
 
 const gems = [
   { name: 'Sunstone', price: 4 },
@@ -23,21 +23,30 @@ const filter = item => {
   console.log('filter is run.');
   return item.price < 10;
 };
-const transform = item => {
+const transform = (item, index, array) => {
   transformCounter++;
   console.log('transform is run.');
+  // console.log(item, index);
   return {
     name: item.name.toUpperCase(),
     price: item.price
   };
 };
 
-const result = _
+let result;
+
+result = _
   .chain(gems)
   .filter(filter)
   .map(transform)
   .take(3)
   .value();
+
+// const a = Lazy.chain(gems);
+// const b = a.filter(filter);
+// const c = b.map(transform);
+// const d = c.take(3);
+// result = d.value();
 
 console.log('filterCounter:', filterCounter);
 console.log('transformCounter:', transformCounter);
