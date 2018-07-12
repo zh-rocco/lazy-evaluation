@@ -14,7 +14,7 @@
       "type": "node",
       "request": "launch",
       "name": "lib/lazy-2.js",
-      "program": "${workspaceFolder}\\lib\\lazy-2.js"
+      "program": "${workspaceFolder}/lib/lazy-2.js"
     }
   ]
 }
