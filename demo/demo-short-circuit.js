@@ -2,7 +2,6 @@
 
 const func = function() {
   console.log('func is executed!');
-  return 'some value form func.';
 };
 
 console.log('a1: start');
