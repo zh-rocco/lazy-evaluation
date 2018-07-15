@@ -7,14 +7,14 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "lib/lazy.js",
-      "program": "${workspaceFolder}\\lib\\lazy.js"
+      "name": "windows: lazy.js",
+      "program": "${workspaceFolder}\\demo\\demo-array-lazy.js"
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "lib/lazy-2.js",
-      "program": "${workspaceFolder}/lib/lazy-2.js"
+      "name": "mac: lazy.js",
+      "program": "${workspaceFolder}/demo/demo-array-lazy.js"
     }
   ]
 }

@@ -17,8 +17,8 @@ let fib = function(n) {
 console.log('fib 20:', fib(20));
 console.log('counter:', counter, '\n');
 
-counter = 0;
-fib = memoize(fib);
+counter = 0; // 重置 counter
+fib = memoize(fib); // 重写 fib
 
 console.log('memorizedFib 20:', fib(20));
 console.log('counter:', counter);
