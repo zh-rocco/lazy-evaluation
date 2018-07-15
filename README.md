@@ -295,7 +295,7 @@ console.log(result);
 // ]
 ```
 
-### 短路求值（Short-circuit evaluation）
+### 短路求值（Short-circuit evaluation）\*
 
 > 《JavaScript 面向对象编程指南》2.3.4.3
 
@@ -338,7 +338,7 @@ console.log('b2: end\n');
 // b2: end
 ```
 
-### ES6 中的默认参数
+### ES6 中的默认参数 \*
 
 > 参数默认值不是传值的，而是每次都重新计算默认值表达式的值。也就是说，参数默认值是惰性求值的。 -- [ECMAScript 6 入门](http://es6.ruanyifeng.com/#docs/function)
 
