@@ -295,6 +295,8 @@ console.log(result);
 // ]
 ```
 
+TODO: 实现一个简易的 Lazy.js
+
 ### 短路求值（Short-circuit evaluation）\*
 
 > 《JavaScript 面向对象编程指南》2.3.4.3
